@@ -8,7 +8,7 @@ function Body() {
     
     //flipkard mobile
   useEffect(() => {
-    fetch('http://localhost:4000/api/mobile')
+    fetch('https://backendweb.onrender.com/api/mobile')
       .then((response) => response.json())
       .then((data) => {
         // console.log(Object.keys(data));
@@ -19,7 +19,7 @@ function Body() {
 
     //laptop 
   useEffect(() => {
-    fetch('http://localhost:4000/api/laptop')
+    fetch('https://backendweb.onrender.com/api/laptop')
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
@@ -31,7 +31,7 @@ function Body() {
 
       //tv 
       useEffect(() => {
-        fetch('http://localhost:4000/api/tv')
+        fetch('https://backendweb.onrender.com/api/tv')
           .then((response) => response.json())
           .then((data) => {
             // console.log(data);
