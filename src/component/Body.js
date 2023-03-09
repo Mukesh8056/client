@@ -51,7 +51,7 @@ function Body() {
   
   const limitedlaptop = laptopdata.slice(0, 10);
 
-  const limitedtv = tvdata.slice(5,17);
+  const limitedtv = tvdata.slice(5,16);
 
   return (
     <div className=' bg-black'>
@@ -113,6 +113,7 @@ function Body() {
          <span className='pl-6 text-2xl font-semibold'>{tv.offerPercentage}</span>
          </div>
          <div  className='rounded-3xl md: p-0.5' >
+         <div  ><div className=' font-semibold'> Specification:</div><span className=' bg-slate-100 font-normal'>LG LED TV</span> </div>
          <div > <span className=' font-semibold'> Customer :</span> {tv.ratings}</div>
          <div > <span className=' font-semibold'>Review 5</span> for : {tv.reviews}</div>
          </div>
