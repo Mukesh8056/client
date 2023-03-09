@@ -5,7 +5,6 @@ function Body() {
   const [mobiledata, setMobiledata] = useState([]);
   const [laptopdata, setlaptopdata] = useState([])
   const [tvdata, settvdata] = useState([])
-    
     //flipkard mobile
   useEffect(() => {
     fetch('https://backendweb.onrender.com/api/mobile')
@@ -19,6 +18,7 @@ function Body() {
 
     //laptop 
   useEffect(() => {
+   
     fetch('https://backendweb.onrender.com/api/laptop')
       .then((response) => response.json())
       .then((data) => {
@@ -26,11 +26,13 @@ function Body() {
         // console.log(Object.keys(data));
         // console.log(data.e)
         setlaptopdata(data.e);
+        
       });
   }, []);
 
       //tv 
       useEffect(() => {
+        
         fetch('https://backendweb.onrender.com/api/tv')
           .then((response) => response.json())
           .then((data) => {
@@ -38,13 +40,15 @@ function Body() {
             // console.log(Object.keys(data));
             // console.log(data.e)
             settvdata(data.e);
+           
           });
       }, []);
  
 
   
-  const limitedmobile =mobiledata.slice(15,25);
-
+  const limitedmobile = 
+    mobiledata.slice(15,25);
+  
   const limitedlaptop = laptopdata.slice(0, 10);
 
   const limitedtv = tvdata.slice(5,17);
@@ -60,7 +64,8 @@ function Body() {
      <SwiperSlide className=''>
      <h1 className=' text-3xl px-14 font-bold py-8 text-zinc-100 '> 
       Mobile:</h1>
-      {limitedmobile &&
+      { limitedmobile &&limitedmobile.length>0?
+
         limitedmobile.map((mobile, i) => (
           <div className=' m-4 bg-gray-300 rounded-2xl p-6 hover:scale-105 duration-300 '>
           <div  className='rounded-3xl md: p-0.5 flex-1'>
@@ -75,11 +80,11 @@ function Body() {
          <div > <span className=' font-semibold'>Review 5</span> for : {mobile.reviews}</div>
          </div>
          </div>
-        ))}
+        )) : <h1 className=' text-3xl font-bold text-slate-100 p-16'>Loading...</h1>}
         </SwiperSlide>
      <SwiperSlide>
      <h1 className=' text-3xl px-14 font-bold py-8  text-zinc-100'>Laptop :</h1>
-      {limitedlaptop &&
+       {   limitedlaptop && limitedlaptop.length >0 ?
         limitedlaptop.map((laptop, i) => (
           <div className=' m-4 bg-gray-300 rounded-2xl p-10 hover:scale-105 duration-300 '>
           <div  className='rounded-3xl md: p-0.5 flex-1'>
@@ -94,11 +99,11 @@ function Body() {
          <div > <span className=' font-semibold'>Review 5</span> for : {laptop.reviews}</div>
          </div>
          </div>
-        ))}
+        )) : <h1 className=' text-3xl font-bold text-slate-100 p-16'>Loading...</h1>}
         </SwiperSlide>
         <SwiperSlide>
      <h1 className=' text-3xl px-14 font-bold py-8  text-zinc-100'>Tv :</h1>
-      {limitedtv &&
+      { limitedtv && limitedtv.length >0 ?
         limitedtv.map((tv, i) => (
           <div className=' m-4 bg-gray-300 rounded-2xl p-10 hover:scale-105 duration-300 '>
           <div  className='rounded-3xl md: p-0.5 flex-1'>
@@ -112,7 +117,7 @@ function Body() {
          <div > <span className=' font-semibold'>Review 5</span> for : {tv.reviews}</div>
          </div>
          </div>
-        ))}
+        )) : <h1 className=' text-3xl font-bold text-slate-100 p-16'>Loading...</h1>}
         </SwiperSlide>
         </Swiper> 
     </div>
